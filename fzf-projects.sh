@@ -11,5 +11,3 @@ if [[ -z $query ]]; then
 fi
 
 cd "$CODE/$query" || exit
-
-nvim
