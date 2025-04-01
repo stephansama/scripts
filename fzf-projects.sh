@@ -2,8 +2,7 @@
 
 query=$(
 	find "$CODE" -type d -mindepth 1 -maxdepth 1 | sed "s@$CODE/@@g" | fzf \
-		--ansi \
-		--preview="lsd -1 $CODE/{}"
+		--ansi
 )
 
 if [[ -z $query ]]; then
