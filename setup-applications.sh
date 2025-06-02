@@ -11,6 +11,7 @@ programming_applications=(
 )
 
 terminal_applications=(
+	"atuin"
 	"coreutils"
 	"docker"
 	"fzf"
