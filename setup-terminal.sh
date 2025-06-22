@@ -6,6 +6,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # OMZ External plugins
 plugins=(
 	"pnpm https://github.com/ntnyq/omz-plugin-pnpm.git"
+	"zsh-autocomplete https://github.com/marlonrichert/zsh-autocomplete.git"
 	"zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git"
 	"zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git"
 	"zsh-npm-scripts-autocomplete https://github.com/grigorii-zander/zsh-npm-scripts-autocomplete.git"
