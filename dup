@@ -1,0 +1,5 @@
+#!/bin/bash
+
+file=$([[ -n "$1" ]] && echo "$1" || fzf)
+
+sort "$file" | uniq --count --repeated

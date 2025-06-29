@@ -2,6 +2,4 @@
 
 source "$HOME/.zshrc"
 
-als | awk NF | fzf \
-	--ansi \
-	--tmux
+als | awk NF | fzf --ansi --tmux
