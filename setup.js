@@ -4,6 +4,7 @@ import { execSync as sh } from "node:child_process";
 
 const globalNpmPackages = [
 	"@antfu/ni",
+	"@google/gemini-cli",
 	"@mcansh/pid-from-port-cli",
 	"http-serve",
 	"neovim",
