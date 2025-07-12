@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# based on breadonpenguin's record script
+# https://github.com/BreadOnPenguins/scripts/blob/master/record
+
+recpid="/tmp/recpid"
+
+record() {
+	notify "starting recording"
+
+	ffmpeg -f avfoundation -r 60 -i 4:0 "$HOME/video_$(date '+%a__%b%d__%H_%M_%S').mkv" &
+	echo $! >$recpid
+}
+
+end() {
+	notify "closing"
+
+	kill -15 "$(cat $recpid)" "$(cat $recpid)"
+	rm $recpid
+}
+
+([[ -f $recpid ]] && end && exit 0) || record
