@@ -1,7 +1,7 @@
 #!/bin/bash
 
 theme=$("$HOME/.config/scripts/theme.sh")
-LG_CONFIG_FILE="$HOME/.config/lazygit/"
+LG_CONFIG_FILE="$HOME/.config/lazygit/themes/"
 
 if [[ $theme == 'Dark' ]]; then
 	LG_CONFIG_FILE+="mocha.yml"
