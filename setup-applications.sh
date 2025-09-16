@@ -2,31 +2,15 @@
 
 programming_applications=(
 	"gcc"
-	"go"
 	"lua"
 	"make"
-	"nvm"
-	"rustup"
-	"zig"
 )
 
 terminal_applications=(
-	"atuin"
 	"coreutils"
-	"docker"
-	"fzf"
-	"jq"
-	"lazygit"
-	"lsd"
 	"ncdu"
-	"neovim"
 	"ollama"
-	"ranger"
-	"ripgrep"
-	"starship"
 	"stow"
-	"tmux"
-	"tokei"
 	"vim"
 	"wezterm"
 	"yt-dlp"
