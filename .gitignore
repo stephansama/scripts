@@ -1,1 +1,2 @@
-completions/
+completions/*.
+!completions/.gitkeep
