@@ -1,2 +1,2 @@
 completions/*.sh
-!completions/.gitkeep
+!completions/setup.sh
