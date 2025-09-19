@@ -1,6 +1,7 @@
 #!/bin/bash
+# shellcheck disable=1090
 
-setup_completion() {
+function setup_completion() {
 	local cmd="$1"
 	local generation_cmd="$2"
 	local completion_file="$HOME/.config/scripts/completions/${cmd}.sh"
@@ -14,6 +15,12 @@ setup_completion() {
 		source "$completion_file"
 	fi
 }
+
+# https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration
+setup_completion "fzf" "fzf --zsh"
+
+# https://docs.atuin.sh/integrations/
+setup_completion "atuin" "atuin gen-completions --shell zsh"
 
 # https://pnpm.io/completion
 setup_completion "pnpm" "pnpm completion bash"
