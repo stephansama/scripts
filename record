@@ -2,21 +2,20 @@
 
 # based on breadonpenguin's record script
 # https://github.com/BreadOnPenguins/scripts/blob/master/record
+# modified to work with my tmux centric workflow
 
-recpid="/tmp/recpid"
+eval "$(mise activate bash)"
 
-record() {
+screen_session="screencap"
+
+if tmux has-session -t "$screen_session" 2>/dev/null; then
+	tmux send-keys -t "$screen_session" C-c
+	tmux kill-session -t "$screen_session"
+
+	notify "closing recording"
+else
 	notify "starting recording"
 
-	ffmpeg -f avfoundation -r 60 -i 4:0 "$HOME/video_$(date '+%a__%b%d__%H_%M_%S').mkv" &
-	echo $! >$recpid
-}
-
-end() {
-	notify "closing"
-
-	kill -15 "$(cat $recpid)" "$(cat $recpid)"
-	rm $recpid
-}
-
-([[ -f $recpid ]] && end && exit 0) || record
+	tmux new-session -d -s "$screen_session" \
+		"ffmpeg -f avfoundation -r 60 -i 2:0 \"$HOME/video_$(date '+%a__%b%d__%H_%M_%S').mkv\""
+fi
