@@ -7,15 +7,19 @@
 eval "$(mise activate bash)"
 
 screen_session="screencap"
+today_dir="$(date '+%m_%d_%y')"
+timestamp="$(date '+%m_%d_%y__%H_%M_%S')"
+record_dir="$HOME/Movies/"
+output_dir="$record_dir/$today_dir"
 
 if tmux has-session -t "$screen_session" 2>/dev/null; then
 	tmux send-keys -t "$screen_session" C-c
+	sleep 2
 	tmux kill-session -t "$screen_session"
 
 	notify "closing recording"
 else
-	notify "starting recording"
-
+	mkdir -p "$output_dir"
 	tmux new-session -d -s "$screen_session" \
-		"ffmpeg -f avfoundation -r 60 -i 2:0 \"$HOME/video_$(date '+%a__%b%d__%H_%M_%S').mkv\""
+		"ffmpeg -f avfoundation -r 60 -i 2:0 \"$output_dir/video_$timestamp.mp4\""
 fi
